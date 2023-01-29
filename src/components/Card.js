@@ -2,6 +2,7 @@ import React from 'react'
 import {IoAlert, IoThumbsUp, IoHappyOutline,IoMedkit, IoLogoUsd, IoAirplane, IoMailOutline,IoWoman, IoChevronForward, IoApps, IoNotifications, IoPieChart, IoNewspaper, IoCard, IoColorFill, IoStar} from "react-icons/io5"
 import { IconContext } from 'react-icons'
 import {motion} from 'framer-motion';
+import {FaPray} from 'react-icons/fa';
 
 let easing = [0.6,-0.05,0.01,0.99];
 
@@ -82,6 +83,15 @@ function Card() {
   return (
     <motion.div className="service_container">
         <div className="title_wrapper">
+        <motion.span
+                initial={{y:20, opacity:0}}
+                animate={{y:0, opacity:1}}
+                exit={{opacity:0}}
+                transition={{duration:.5, delay:1.8}}>
+              <IconContext.Provider value={{color:"#333", size:"30px", className:"icons_container"}}>
+                <div className="icon"><FaPray/></div>
+              </IconContext.Provider>
+        </motion.span>
         <h4>Allahumma thouwil umuuronaa washohih ajsaa danaa wanawwir quluu banaa <br/> wasabbit iymaa nanaa wa'ah sin'a maalanaa wawasshih arzaqonaa waila khoiri qhorribnaa wa anissarri ibidnaa <br/> waaqndi hawaa ijanaa fiddiini waddunyaa wallaa hiroti innaka alakulli sai'in qodiir</h4>
         <motion.div className="review_container" variants={stagger}>
             <IconContext.Provider value={{color:"#fff", size:"18px"}}>

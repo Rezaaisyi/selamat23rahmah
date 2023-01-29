@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons';
 import Card from './components/Card';
 import { motion } from 'framer-motion';
 import {useRef} from 'react';
+import Slide from './components/Slide';
 
 let easeing = [0.6,-0.05,0.01,0.99];
 
@@ -130,10 +131,16 @@ const header={
 function App() {
   
   const ref = useRef(null);
+  const fes = useRef(null);
 
+
+  const handleClick2 = () => {
+    fes.current?.scrollIntoView({behavior: 'smooth'});
+  };
   const handleClick = () => {
     ref.current?.scrollIntoView({behavior: 'smooth'});
   };
+
   
   return (
     <motion.div initial='initial' animate='animate'>
@@ -205,7 +212,7 @@ function App() {
                 <IoChevronForwardCircle/>
               </IconContext.Provider>
             </motion.div>
-            <motion.div className="btn btn_secondary" variants={btnGroup} whileHover={{scale:1.05}} whileTap={{scale:0.95}}>Coba Diklik</motion.div>
+            <motion.div className="btn btn_secondary" variants={btnGroup} whileHover={{scale:1.05}} whileTap={{scale:0.95}} onClick={handleClick2}>Coba Diklik</motion.div>
           </motion.div>
 
 
@@ -222,6 +229,10 @@ function App() {
       
       <div ref={ref}>
       <Card />
+      </div>
+
+      <div ref={fes}>
+      <Slide />
       </div>
       
 
